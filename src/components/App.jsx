@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import GetAllSongs from './GetAllSongs/GetAllSongs';
+import SearchSongs from './SearchSongs/SearchSongs'
 
 
 class App extends Component {
@@ -9,23 +11,18 @@ class App extends Component {
         }
 
 
-    componentDidMount(){
-        this.getAllSongs();
-    }
 
-    async getAllSongs(){
-        let response = await axios.get('http://127.0.0.1:8000/music/');
-        this.setState({
-            songs: response.data
-        });
-    }
+
+
 
     render(){
         return(
-        <div>
-            {this.state.songs}
-        </div>
-        )
+            <div>
+            <h1>Music Library:</h1>
+              <GetAllSongs />
+              <SearchSongs />
+            </div>
+        );              
     }
 }
 
